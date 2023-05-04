@@ -1,5 +1,11 @@
 .POSIX:
 
+DOCKER_TAG = itop-docker
+DOCKER_REVISION ?= dev-$(USER)
+
+build:
+	docker build -t ${DOCKER_TAG}:${DOCKER_REVISION} ./itop
+
 dev: 
 	@echo "Building dev..."
 	@docker compose -f docker-compose.dev.yml up -d
