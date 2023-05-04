@@ -12,6 +12,9 @@ run:
 it: 
 	docker exec -it itop_dit bash
 
+dev-it: 
+	docker exec -it dev-itop-1 bash
+
 dev: 
 	@echo "Building dev..."
 	make build

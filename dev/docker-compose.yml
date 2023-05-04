@@ -3,7 +3,6 @@ version: "3.9"
 services:
   mariadb:
     image: mariadb:10.7
-    container_name: mariadb
     hostname: mariadb
     volumes:
       - mariadb_data:/var/lib/mysql
@@ -13,7 +12,6 @@ services:
 
   itop:
     image: "${DOCKER_TAG}:${DOCKER_REVISION}"
-    container_name: itop
     hostname: itop
     ports:
       - 80:80
