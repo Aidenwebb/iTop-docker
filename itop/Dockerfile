@@ -33,6 +33,7 @@ RUN apt update \
     php8.0-mysql \
     php8.0-ldap \
     php8.0-cli \
+    php8.0-curl \
     php8.0-soap \
     graphviz \
     php8.0-xml \
