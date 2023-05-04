@@ -15,6 +15,12 @@ reload:
 	@docker compose -f docker-compose.dev.yml up -d --force-recreate
 	@echo "Done!"
 
+rebuild:
+	@echo "Rebuilding dev..."
+	@docker compose -f docker-compose.dev.yml down --remove-orphans
+	@docker compose -f docker-compose.dev.yml up -d --force-recreate --build
+	@echo "Done!"
+
 reset:
 	@echo "Resetting dev..."
 	@docker compose -f docker-compose.dev.yml down --remove-orphans --volumes
