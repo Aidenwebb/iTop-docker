@@ -45,7 +45,11 @@ RUN apt update \
     && rm -rf /var/lib/apt/lists \
     && update-alternatives --set php /usr/bin/php8.0
 
-# Clean apache2 default page
+# Configure apache2
+
+COPY /etc/apache2/conf-available/security.conf /etc/apache2/conf-available/security.conf
+
+## Clean apache2 default page
 RUN rm -rf /var/www/html/*
 
 # Install iTop
