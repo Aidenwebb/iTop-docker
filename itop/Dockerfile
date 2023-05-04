@@ -50,14 +50,13 @@ RUN rm -rf /var/www/html/*
 # Install iTop
 WORKDIR /usr/local/src
 
+## Download iTop, unzip and move to /var/www/html
 RUN curl -sSL https://sourceforge.net/projects/itop/files/itop/$ITOP_VERSION/$ITOP_FILENAME/download -o $ITOP_FILENAME \
     && unzip $ITOP_FILENAME -d itop \
     && rm $ITOP_FILENAME \
     && mv itop/web/* /var/www/html/ \
     && rm -rf itop \
-    && chown -R www-data:www-data /var/www/html \
-    && find /var/www/html/ -type -d -exec chmod 755 {} \; \
-    && find /var/www/html/ -type -f -exec chmod 644 {} \;
+    && chown -R www-data:www-data /var/www/html
 
 WORKDIR /
 
