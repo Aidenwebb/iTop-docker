@@ -55,3 +55,14 @@ RUN curl -sSL https://sourceforge.net/projects/itop/files/itop/$ITOP_VERSION/$IT
     && rm $ITOP_FILENAME \
     && mv itop/web/* /var/www/html/ \
     && rm -rf itop
+
+COPY /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf
+
+WORKDIR /
+
+COPY /run.sh /run.sh
+RUN chmod +x /run.sh
+
+EXPOSE 80
+
+ENTRYPOINT [ "/run.sh" ]
