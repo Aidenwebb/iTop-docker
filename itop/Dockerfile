@@ -54,9 +54,10 @@ RUN curl -sSL https://sourceforge.net/projects/itop/files/itop/$ITOP_VERSION/$IT
     && unzip $ITOP_FILENAME -d itop \
     && rm $ITOP_FILENAME \
     && mv itop/web/* /var/www/html/ \
-    && rm -rf itop
-
-COPY /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf
+    && rm -rf itop \
+    && chown -R www-data:www-data /var/www/html \
+    && find /var/www/html/ -type -d -exec chmod 755 {} \; \
+    && find /var/www/html/ -type -f -exec chmod 644 {} \;
 
 WORKDIR /
 
