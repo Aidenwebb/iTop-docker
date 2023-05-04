@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  mariadb:
+    image: mariadb:10.7
+    hostname: mariadb
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    env_file:
+      - ./mariadb/.env
+    restart: unless-stopped
+
+  itop:
+    image: "${DOCKER_TAG}:${DOCKER_REVISION}"
+    hostname: itop
+    ports:
+      - 80:80
+    restart: unless-stopped
+
+volumes:
+  mariadb_data:
