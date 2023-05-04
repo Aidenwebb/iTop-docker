@@ -7,10 +7,10 @@ build:
 	docker build -t ${DOCKER_TAG}:${DOCKER_REVISION} ../itop
 
 run: 
-	docker run -dit ${DOCKER_TAG}:${DOCKER_REVISION} 
+	docker run -dit ${DOCKER_TAG}:${DOCKER_REVISION} --name itop_dit
 
 run-interactive: 
-	docker run -it ${DOCKER_TAG}:${DOCKER_REVISION}
+	docker run -it ${DOCKER_TAG}:${DOCKER_REVISION} --name itop_it
 
 dev: 
 	@echo "Building dev..."
