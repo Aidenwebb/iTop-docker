@@ -1,13 +1,14 @@
 .POSIX:
 
 DOCKER_TAG = itop-docker
-DOCKER_REVISION ?= dev-$(USER)
+DOCKER_REVISION ?= dev-local
 
 build:
 	docker build -t ${DOCKER_TAG}:${DOCKER_REVISION} ./itop
 
 dev: 
 	@echo "Building dev..."
+	make build
 	@docker compose -f docker-compose.dev.yml up -d
 	@echo "Done!"
 
@@ -23,8 +24,9 @@ reload:
 
 rebuild:
 	@echo "Rebuilding dev..."
+	make build
 	@docker compose -f docker-compose.dev.yml down --remove-orphans
-	@docker compose -f docker-compose.dev.yml up -d --force-recreate --build
+	@docker compose -f docker-compose.dev.yml up -d --force-recreate
 	@echo "Done!"
 
 reset:

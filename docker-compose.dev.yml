@@ -12,10 +12,10 @@ services:
     restart: unless-stopped
 
   itop:
-    build: ./itop
+    image: "${DOCKER_TAG}:${DOCKER_REVISION}"
     container_name: itop
     hostname: itop
-    ports: 
+    ports:
       - 80:80
     restart: unless-stopped
 
