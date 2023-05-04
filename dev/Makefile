@@ -6,6 +6,12 @@ DOCKER_REVISION = dev-local
 build:
 	docker build -t ${DOCKER_TAG}:${DOCKER_REVISION} ../itop
 
+run: 
+	docker run -dit ${DOCKER_TAG}:${DOCKER_REVISION} 
+
+run-interactive: 
+	docker run -it ${DOCKER_TAG}:${DOCKER_REVISION}
+
 dev: 
 	@echo "Building dev..."
 	make build
