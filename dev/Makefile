@@ -1,6 +1,6 @@
 .POSIX:
 
-DOCKER_TAG = itop-docker
+DOCKER_TAG = itop
 DOCKER_REVISION = dev-local
 
 build:
