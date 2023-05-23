@@ -14,7 +14,7 @@ services:
     image: "${DOCKER_TAG}:${DOCKER_REVISION}"
     hostname: itop
     ports:
-      - 80:80
+      - 8080:80
     restart: unless-stopped
 
 volumes:
