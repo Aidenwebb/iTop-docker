@@ -47,6 +47,8 @@ RUN apt update \
 
 # Configure apache2
 
+RUN a2enmod headers
+
 COPY /etc/apache2/conf-available/security.conf /etc/apache2/conf-available/security.conf
 
 ## Clean apache2 default page
